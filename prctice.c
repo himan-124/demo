@@ -1,4 +1,4 @@
-#include <math.h>
+/*#include <math.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -49,7 +49,7 @@ int main() {
             
     }
      Enter your code here. Read input from STDIN. Print output to STDOUT */
-    return 0;
+    /*return 0;
 }
 #include<stdio.h>
 int main() {
@@ -63,6 +63,25 @@ int main() {
     } else {
         printf("%d\n",n3);
     }
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    //Enter your code here. Read input from STDIN. Print output to STDOUT 
     return 0;
+}*/
+
+
+//Addition of a number 
+
+#include<iostream>
+using namespace std;
+void swap(int &x, int &y)
+{
+    int temp=x;
+    x=y;
+    y=temp;
+}
+int main()
+{
+    int x=25;
+    int y=50;
+    swap(x,y);
+    cout << x << " " << y ;
 }
