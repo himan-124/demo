@@ -1,4 +1,4 @@
-/*#include<iostream>
+#include<iostream>
 using namespace std;
 int largest(int x,int y,int z)
 {
@@ -25,8 +25,8 @@ int main()
     << largest(a,b,c) end1 ;
     cout << "The Largest Number Among 2 Is "
     << largest(b,c) end2 ; 
-}*/
-#include<stdio.h>
+}
+/*#include<stdio.h>
  int sum(float b,float a){
     int c=a+b;
     return c;
@@ -44,4 +44,4 @@ int main(){
     result=sum(b,a);
     printf("result is : %f\n",result);
     return 0;
-}
+}*/
