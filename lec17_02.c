@@ -1,10 +1,9 @@
-/*write a program to print elements in a patterns like
-1 2 3
-6 9 8
-7 4 5  */
+//write a program to print the pattern using the array elements like 
+//  1 2 3
+//  4   6
+//  7 8 9
 #include<stdio.h>
 int main()
-
 {
     int a[3][3],i,j;
     printf("Enter the elements of the array:\n");

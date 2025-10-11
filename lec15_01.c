@@ -1,4 +1,4 @@
-//write a  to print elements of array in ascending order using sorting
+//write a program to print elements of array in ascending order using sorting
 #include<stdio.h>
 int main()
 {
