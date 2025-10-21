@@ -1,4 +1,4 @@
-//count characters in a string and print number of their outcome
+//count characters in a string and print number of their outcome (string taken by user as input)
 #include<stdio.h>
 #include<string.h>
 int main()

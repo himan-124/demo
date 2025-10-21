@@ -8,8 +8,7 @@ int main()
             printf("%d\n", i);
           
         }
-          else
-             printf("ODD");
+          
     }
 
 }
