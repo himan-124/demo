@@ -1,4 +1,5 @@
-/*#include <math.h>
+/*
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -48,8 +49,8 @@ int main() {
             break;
             
     }
-     Enter your code here. Read input from STDIN. Print output to STDOUT */
-    /*return 0;
+     Enter your code here. Read input from STDIN. Print output to STDOUT 
+    return 0;
 }
 #include<stdio.h>
 int main() {
@@ -65,12 +66,12 @@ int main() {
     }
     //Enter your code here. Read input from STDIN. Print output to STDOUT 
     return 0;
-}*/
+}
 
 
 //Addition of a number 
 
-/*#include<iostream>
+#include<iostream>
 using namespace std;
 void swap(int &x, int &y)
 {
@@ -84,11 +85,11 @@ int main()
     int y=50;
     swap(x,y);
     cout << x << " " << y ;
-}*/
+}
 
 
 
-/*Find the maximum and minimum element in an array in c
+Find the maximum and minimum element in an array in c
 #include <stdio.h>
 int main()
 {
@@ -257,7 +258,7 @@ int main() {
 //Enter the number of elements in the array: 7
 //Enter the elements of the array: 0 1 2 0 1 2 0
 //Sorted array is: 0 0 0 1 1 2 2
-*/
+
 //move all negative numbers to beginning and positive to end with constant space
 #include <stdio.h>
 void rearrange(int arr[], int n) {
@@ -300,3 +301,330 @@ int main() {
 //Rearranged array is: -2 -4 -6 -8 5 3 7 1
 
 
+
+// writie a program to find union and intersection of two arrays 
+
+
+#include <stdio.h>
+#define MAX 100
+void unionArrays(int arr1[], int n1, int arr2[], int n2, int result[], int *n3) {
+    int i, j;
+    *n3 = 0;
+    for (i = 0; i < n1; i++) {
+        result[(*n3)++] = arr1[i];
+    }
+    for (i = 0; i < n2; i++) {
+        int found = 0;
+        for (j = 0; j < n1; j++) {
+            if (arr2[i] == arr1[j]) {
+                found = 1;
+                break;
+            }
+        }
+        if (!found) {
+            result[(*n3)++] = arr2[i];
+        }
+    }
+}
+void intersectionArrays(int arr1[], int n1, int arr2[], int n2, int result[], int *n3) {
+    int i, j;
+    *n3 = 0;
+    for (i = 0; i < n1; i++) {
+        for (j = 0; j < n2; j++) {
+            if (arr1[i] == arr2[j]) {
+                result[(*n3)++] = arr1[i];
+                break;
+            }
+        }
+    }
+}
+int main() {
+    int arr1[MAX], arr2[MAX], result[MAX];
+    int n1, n2, n3, i;
+    printf("Enter number of elements in first array: ");
+    scanf("%d", &n1);
+    printf("Enter elements of first array: ");
+    for (i = 0; i < n1; i++) {
+        scanf("%d", &arr1[i]);
+    }
+    printf("Enter number of elements in second array: ");
+    scanf("%d", &n2);
+    printf("Enter elements of second array: ");
+    for (i = 0; i < n2; i++) {
+        scanf("%d", &arr2[i]);
+    }
+    unionArrays(arr1, n1, arr2, n2, result, &n3);
+    printf("Union of the two arrays is: ");
+    for (i = 0; i < n3; i++) {
+        printf("%d ", result[i]);
+    }
+    printf("\n");
+    intersectionArrays(arr1, n1, arr2, n2, result, &n3);
+    printf("Intersection of the two arrays is: ");
+    for (i = 0; i < n3; i++) {
+        printf("%d ", result[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+
+
+//output
+//Enter number of elements in first array: 5
+//Enter elements of first array: 1 2 3 4 5
+//Enter number of elements in second array: 4
+//Enter elements of second array: 4 5 6 7
+//Union of the two arrays is: 1 2 3 4 5 6 7
+//Intersection of the two arrays is: 4 5
+
+
+
+
+//Write a program to cyclically rotate an array by one
+// like if arr[]={1,2,3,4,5} after rotation arr[]={5,1,2,3,4} then rotate and print array until 1st digit reaches to its original position
+
+
+
+#include<stdio.h>
+void rotationarray(int arr[],int n){
+    int last=arr[n-1];
+    for (int i=n-1;i>0;i--){
+        arr[i]=arr[i-1];
+
+    }
+    arr[0]=last;
+}
+int main(){
+    int arr[]={1,2,3,4,5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int first=arr[0];
+    do {
+        rotationarray(arr,n);
+        for (int i=0;i<n;i++){
+            printf("%d ",arr[i]);
+        }
+        printf("\n\n");
+    } while (arr[0]!=first);
+    return 0;
+}
+
+
+
+
+//output
+//5 1 2 3 4
+//4 5 1 2 3
+//3 4 5 1 2
+//2 3 4 5 1
+//1 2 3 4 5
+
+
+
+
+
+
+
+
+//Kadane's Algorithm to find maximum subarray sum in an array
+
+#include <stdio.h>
+int main() {     //making main function
+    int arr[]={1,-8,2,-2,3,-1,4,-9,5};    //giving array
+    int n=sizeof(arr)/sizeof(arr[0]);    //calculating size of array
+    int curr_sum=0;     //initializing current sum
+    int max_sum=0;     //initializing maximum sum
+    for (int i=0;i<n;i++){     //using loop for calculating sum
+        curr_sum=curr_sum+arr[i];    //updating current sum by adding each element
+        if (curr_sum<0){    //if current sum is less than 0 then we make it 0
+            curr_sum=0;     //updating current sum
+        }
+        if (curr_sum>max_sum){    //if current sum is greater than maximum sum then we update maximum sum 
+            max_sum=curr_sum;   //updating maximum sum
+        }
+    }
+    printf("Maximum subarray sum is : %d",max_sum);   //printing maximum sum
+    return 0;
+}    //end of main function
+
+
+//write a program to search an element in a sorted and rotated array
+
+#include <stdio.h>      //including standard input output header file
+int search(int arr[], int n, int key) {       //function to search an element in a sorted and rotated array
+    int left = 0;        //initializing left pointer
+    int right = n - 1;       //initializing right pointer
+    while (left <= right) {         //using loop until left pointer is less than or equal to right pointer
+        int mid = left + (right - left) / 2;    //calculating mid index
+        if (arr[mid] == key) {   //if mid element is equal to key then we return mid index
+            return mid;     //returning mid index
+        }     //if mid element is not equal to key then we check which half is sorted
+        if (arr[left] <= arr[mid]) {       //if left half is sorted
+            if (key >= arr[left] && key < arr[mid]) {         //if key is in left half then we update right pointer
+                right = mid - 1;           //updating right pointer
+            } else {          //if key is in right half then we update left pointer
+                left = mid + 1;              //updating left pointer
+            }         //end of else
+        } else {             //if right half is sorted
+            if (key > arr[mid] && key <= arr[right]) {          //if key is in right half then we update left pointer
+                left = mid + 1;             //updating left pointer
+            } else {             //if key is in left half then we update right pointer
+                right = mid - 1;            //updating right pointer
+            }        //end of else
+        }              //end of else
+    }              //end of while loop
+    return -1;            //if key is not found then we return -1
+}              //end of search function
+int main() {                //main function
+    int arr[] = { 15, 18, 2, 3, 6, 12 };              //given sorted and rotated array
+    int n = sizeof(arr) / sizeof(arr[0]);            //calculating size of array
+    int key = 3;             //element to be searched
+    int result = search(arr, n, key);        //calling search function
+    if (result != -1) {             //if element is found then we print its index
+        printf("Element found at index %d\n", result);            //printing index of found element
+    } else {              //if element is not found then we print not found message
+        printf("Element not found in the array\n");              //printing not found message
+    }              //end of else
+    return 0;                 //returning 0 to indicate successful execution
+}                //end of main function
+
+
+
+
+
+//leaders in an array
+
+#include <stdio.h>  //including standard input output header file
+void findLeaders(int arr[], int n) {  //function to find leaders in an array
+    int max_from_right = arr[n - 1];  //initializing maximum from right
+    printf("Leaders in the array are: %d ", max_from_right);  //printing the rightmost element as it is always a leader]
+    for (int i = n - 2; i >= 0; i--) {  //traversing the array from right to left
+        if (arr[i] > max_from_right) {  //if current element is greater than maximum from right
+            max_from_right = arr[i];  //updating maximum from right
+            printf("%d ", max_from_right);  //printing the leader
+        }  //end of if
+    }  //end of for loop
+}  //end of findLeaders function
+int main() {  //main function
+    int arr[] = {16, 17, 4, 3, 5, 2};  //given array
+    int n = sizeof(arr) / sizeof(arr[0]);  //calculating size of array
+    findLeaders(arr, n);  //calling findLeaders function
+    return 0;  //returning 0 to indicate successful execution
+}  //end of main function
+
+
+//output
+//Leaders in the array are: 2 5 17
+
+//rearrange array in alternating positive and negative numbers
+#include <stdio.h>
+void rearrange(int arr[], int n) {//function to rearrange array
+    int temp[n];//temporary array to store rearranged elements
+    int i = 0, j = 0;//i for positive index, j for negative index
+    for (int k = 0; k < n; k++) {//traversing the original array
+        if (arr[k] >= 0) {//if element is positive
+            temp[i] = arr[k];//storing positive element at even index
+            i += 2;//incrementing even index by 2
+        } else {
+            temp[j + 1] = arr[k];//storing negative element at odd index
+            j += 2;//incrementing odd index by 2
+        }
+    }
+    for (int k = 0; k < n; k++) {//copying rearranged elements back to original array
+        arr[k] = temp[k];//updating original array
+    }
+}
+int main() {
+    int arr[] = {1, -2, 3, -4, 5, -6, -7, 8};//given array
+    int n = sizeof(arr) / sizeof(arr[0]);//calculating size of array
+    rearrange(arr, n);//rearranging the array
+    printf("Rearranged array is: ");//printing rearranged array
+    for (int i = 0; i < n; i++) {//traversing the rearranged array
+        printf("%d ", arr[i]);//printing each element
+    }
+    printf("\n");
+    return 0;//indicating successful execution
+}
+//output
+//Rearranged array is: 1 -2 3 -4 5 -6 8 -7
+
+//move all zeros to end of array
+
+#include <stdio.h>
+void moveZeros(int arr[], int n) {
+    int count = 0; // Count of non-zero elements
+    for (int i = 0; i < n; i++) {
+        if (arr[i] != 0) {
+            arr[count++] = arr[i]; // Move non-zero element to the front
+        }
+    }
+    while (count < n) {
+        arr[count++] = 0; // Fill remaining positions with zeros
+    }
+}
+int main() {
+    int arr[] = {5, 4, 0, 2, 0, 12};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    moveZeros(arr, n);
+    printf("Array after moving zeros to the end: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+//output
+//Array after moving zeros to the end: 5 4 2 12 0 0
+
+
+//12. Count the number of occurrences of an element
+#include <stdio.h>
+int countOccurr(int arr[], int n, int k) {
+    int c = 0; // Initialize count of occurrences
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == k) {
+            c++; // Increment count if element matches key
+        }
+    }
+    return c; // Return the total count
+}
+int main() {
+    int arr[] = {1, 2, 3, 2, 4, 2, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int k = 2; // Element to count occurrences of
+    int result = countOccurr(arr, n, k);
+    printf("Element %d occurs %d times in the array %d .\n", k, result, arr[0]);
+    return 0;
+}
+
+*/
+
+//12. Count the number of occurrences of an element
+
+#include <stdio.h>
+int countOccurr(int arr[], int n, int k) {
+    int c = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == k) {
+            c++;
+        }
+    }
+    return c;
+}
+int main() {
+    int arr[] = {1, 2, 3, 2, 4, 2, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int k = 2;
+    int result = countOccurr(arr, n, k);
+
+    printf("Element %d occurs %d times in the array: [", k, result);
+    for (int i = 0; i < n; i++) {
+        printf("%d", arr[i]);
+        if (i < n - 1) {
+            printf(", ");
+        }
+    }
+    printf("]\n");
+
+    return 0;
+}
