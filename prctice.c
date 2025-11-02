@@ -597,7 +597,7 @@ int main() {
     return 0;
 }
 
-*/
+
 
 //12. Count the number of occurrences of an element
 
@@ -628,3 +628,58 @@ int main() {
 
     return 0;
 }
+
+//find all pairs with given sum in an array
+#include <stdio.h>
+void findPairs(int arr[], int n, int sum) {
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (arr[i] + arr[j] == sum) {
+                printf("(%d, %d)\n", arr[i], arr[j]);
+            }
+        }
+    }
+}
+int main() {
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int sum = 10;
+    printf("Pairs with sum %d are:\n", sum);
+    findPairs(arr, n, sum);
+    return 0;
+}
+//output
+//Pairs with sum 10 are:
+//(1, 9)
+//(2, 8)
+//(3, 7)
+//(4, 6)
+//(5, 5)
+
+*/
+
+#include <stdio.h>
+int findMissing(int arr[], int n) {
+    int xor_full = 0;
+    int xor_arr = 0;
+    for (int i = 1; i <= n + 1; i++) {
+        xor_full ^= i;
+    }
+    for (int i = 0; i < n; i++) {
+        xor_arr ^= arr[i];
+    }
+    return xor_full ^ xor_arr;
+}
+
+int main() {
+    int arr[] = {1, 2, 4, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int missing = findMissing(arr, n);
+    printf("Missing number is %d\n", missing);
+    return 0;
+}
+
+
+
+//output
+//Missing number is 3
