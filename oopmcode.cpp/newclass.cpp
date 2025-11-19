@@ -58,10 +58,10 @@ int main() {
     a[2] = new Dog;
     a[3] = new Cat;
 
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4;i++) {
         a[i]->makesound();
-        delete a[i]; // Clean up memory
+        //delete a[i]; 
     }
 
     return 0;
-}
+}// due to dynamic polymorphism we can accomodate objects of various type into a single place if they belong to the same parent 
