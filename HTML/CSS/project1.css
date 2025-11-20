@@ -1,0 +1,282 @@
+/* Base Styles & Futuristic Theme */
+body {
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0c0c1b; /* Deep Dark Blue/Black */
+    color: #00ffaa; /* Primary Neon Green */
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffff; /* Secondary Neon Cyan */
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #00ffff55; /* Subtle glow effect */
+}
+
+/* Horizontal Rule for Separation */
+hr {
+    border: none;
+    border-top: 1px dashed #ff00ff55;
+    margin: 30px 5%;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: #1a1a2e; /* Darker header background */
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #00ffaa;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #ff00ff; /* Neon Magenta accent */
+}
+
+nav a {
+    color: #00ffaa;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+nav a:hover {
+    color: #00ffff;
+    border-color: #00ffff;
+    background-color: #00ffff1a;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.btn-cta {
+    background-color: #ff00ff;
+    color: #1a1a2e !important;
+    padding: 8px 15px;
+    border: none !important;
+    border-radius: 4px;
+    font-weight: 700;
+    box-shadow: 0 0 15px #ff00ff;
+}
+
+.large-btn {
+    padding: 15px 30px;
+    font-size: 1.2em;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    /* Placeholder for the hotel image */
+    background: url('https://picsum.photos/1920/1080?random=1') center center / cover no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    background-color: #000000a0;
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid #00ffaa;
+    box-shadow: 0 0 50px #00ffaa55;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    margin-bottom: 10px;
+    animation: neon-pulse 1.5s infinite alternate;
+}
+
+.hero-content p {
+    color: #ff00ff;
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+/* Futuristic Glitch Effect Overlay */
+.glitch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        #0c0c1b 0%,
+        #1a1a2e 5%,
+        #0c0c1b 10%
+    );
+    opacity: 0.1;
+    z-index: 1;
+}
+
+/* --- Info/Rooms Section --- */
+.info-section, .menu-section {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.info-section h2, .menu-section h2 {
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    color: #ff00ff;
+    border-bottom: 2px dashed #ff00ff55;
+    padding-bottom: 10px;
+}
+
+.room-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.room-card {
+    background-color: #1a1a2e;
+    border: 1px solid #00ffaa;
+    padding: 30px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 0 20px #00ffaa33;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+    position: relative;
+}
+
+.room-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 40px #00ffff88;
+}
+
+.room-card h3 {
+    color: #00ffff;
+    margin-top: 0;
+}
+
+.room-card p {
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.specs {
+    margin-top: 20px;
+    border-top: 1px dashed #00ffaa55;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.specs span {
+    font-size: 0.9em;
+    color: #99ffff;
+}
+
+.icon {
+    margin-right: 8px;
+    color: #ff00ff;
+}
+
+/* Status Chips */
+.status-chip {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+}
+.offline { background-color: #808080; color: #1a1a2e; }
+.online { background-color: #00ffaa; color: #1a1a2e; }
+.alert { background-color: #ff00ff; color: #1a1a2e; box-shadow: 0 0 10px #ff00ff; }
+.luxury-card { border-color: #ff00ff; box-shadow: 0 0 30px #ff00ff55; }
+.highlight-card { border-color: #00ffff; }
+
+
+/* --- Menu Section --- */
+.menu-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Reduced gap to fit more categories */
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.menu-category {
+    background-color: #1a1a2e80;
+    border: 1px solid #00ffaa55;
+    padding: 20px;
+    width: 300px; /* Consistent width */
+    border-radius: 5px;
+}
+
+.menu-category h3 {
+    border-bottom: 1px solid #ff00ff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #ff00ff;
+}
+
+.menu-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-category li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0; /* Reduced padding for tighter list */
+    border-bottom: 1px dotted #00ffaa33;
+    font-size: 0.9em;
+}
+.menu-category li.separator {
+    text-align: center;
+    border-bottom: none;
+    padding: 10px 0 5px 0;
+    color: #00ffff;
+}
+
+.menu-category li span {
+    font-weight: bold;
+    color: #00ffff;
+}
+
+.menu-footer, .extra-charge-note {
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #808080;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a2e;
+    border-top: 2px solid #00ffaa;
+    font-size: 0.8em;
+    color: #00ffaa;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes neon-pulse {
+    from { text-shadow: 0 0 5px #00ffaa, 0 0 10px #00ffaa; }
+    to { text-shadow: 0 0 10px #00ffaa, 0 0 20px #00ffaa, 0 0 30px #00ffaa55; }
+}

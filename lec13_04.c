@@ -1,1 +1,0 @@
-//program of exchange 0 position num with last num in array
