@@ -1,0 +1,456 @@
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAND VILLAS | Futuristic Hotel Management</title>
+    <link rel="stylesheet" href="project1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & Futuristic Theme */
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0c0c1b; /* Deep Dark Blue/Black */
+            color: #00ffaa; /* Primary Neon Green */
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00ffff; /* Secondary Neon Cyan */
+            text-transform: uppercase;
+            text-shadow: 0 0 5px #00ffff55; /* Subtle glow effect */
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: none;
+            border-top: 1px dashed #ff00ff55;
+            margin: 30px 5%;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: #1a1a2e;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #00ffaa;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #ff00ff;
+        }
+
+        nav a {
+            color: #00ffaa;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover {
+            color: #00ffff;
+            border-color: #00ffff;
+            background-color: #00ffff1a;
+            box-shadow: 0 0 10px #00ffff;
+        }
+
+        .btn-cta {
+            background-color: #ff00ff;
+            color: #1a1a2e !important;
+            padding: 8px 15px;
+            border: none !important;
+            border-radius: 4px;
+            font-weight: 700;
+            box-shadow: 0 0 15px #ff00ff;
+        }
+
+        .large-btn {
+            padding: 15px 30px;
+            font-size: 1.2em;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background: url('https://picsum.photos/1920/1080?random=1') center center / cover no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            background-color: #000000a0;
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #00ffaa;
+            box-shadow: 0 0 50px #00ffaa55;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            animation: neon-pulse 1.5s infinite alternate;
+        }
+
+        .hero-content p {
+            color: #ff00ff;
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .glitch-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                #0c0c1b 0%,
+                #1a1a2e 5%,
+                #0c0c1b 10%
+            );
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        /* --- Info/Rooms Section --- */
+        .info-section, .menu-section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .info-section h2, .menu-section h2 {
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            color: #ff00ff;
+            border-bottom: 2px dashed #ff00ff55;
+            padding-bottom: 10px;
+        }
+
+        .room-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .room-card {
+            background-color: #1a1a2e;
+            border: 1px solid #00ffaa;
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 0 20px #00ffaa33;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+            position: relative;
+        }
+
+        .room-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 40px #00ffff88;
+        }
+
+        .room-card h3 {
+            color: #00ffff;
+            margin-top: 0;
+        }
+
+        .room-card p {
+            color: #fff;
+            font-size: 1.2em;
+        }
+
+        .specs {
+            margin-top: 20px;
+            border-top: 1px dashed #00ffaa55;
+            padding-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .specs span {
+            font-size: 0.9em;
+            color: #99ffff;
+        }
+
+        .icon {
+            margin-right: 8px;
+            color: #ff00ff;
+        }
+
+        /* Status Chips */
+        .status-chip {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .offline { background-color: #808080; color: #1a1a2e; }
+        .online { background-color: #00ffaa; color: #1a1a2e; }
+        .alert { background-color: #ff00ff; color: #1a1a2e; box-shadow: 0 0 10px #ff00ff; }
+        .luxury-card { border-color: #ff00ff; box-shadow: 0 0 30px #ff00ff55; }
+        .highlight-card { border-color: #00ffff; }
+
+
+        /* --- Menu Section --- */
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            text-align: left;
+        }
+
+        .menu-category {
+            background-color: #1a1a2e80;
+            border: 1px solid #00ffaa55;
+            padding: 20px;
+            width: 300px;
+            border-radius: 5px;
+        }
+
+        .menu-category h3 {
+            border-bottom: 1px solid #ff00ff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #ff00ff;
+        }
+
+        .menu-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu-category li {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px dotted #00ffaa33;
+            font-size: 0.9em;
+        }
+        .menu-category li.separator {
+            text-align: center;
+            border-bottom: none;
+            padding: 10px 0 5px 0;
+            color: #00ffff;
+        }
+
+        .menu-category li span {
+            font-weight: bold;
+            color: #00ffff;
+        }
+
+        .menu-footer, .extra-charge-note {
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #808080;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a2e;
+            border-top: 2px solid #00ffaa;
+            font-size: 0.8em;
+            color: #00ffaa;
+        }
+
+        /* --- Keyframe Animations --- */
+        @keyframes neon-pulse {
+            from { text-shadow: 0 0 5px #00ffaa, 0 0 10px #00ffaa; }
+            to { text-shadow: 0 0 10px #00ffaa, 0 0 20px #00ffaa, 0 0 30px #00ffaa55; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GRAND VILLAS // AI-Managed Stay</div>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#booking" class="btn-cta">BOOK NOW</a>
+            <a href="#rooms">ROOMS</a>
+            <a href="#menu">CAFE MENU</a>
+            <a href="#records">SYSTEM ACCESS</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>WELCOME TO THE GRAND VILLAS</h1>
+            <p>// NEXT GENERATION LUXURY LODGING //</p>
+            <a href="#booking" class="btn-cta large-btn">ACCESS BOOKING PORTAL</a>
+        </div>
+        <div class="glitch-overlay"></div>
+    </section>
+    
+    <hr>
+
+    <section id="booking" class="info-section">
+        <h2>// BOOKING INITIATION //</h2>
+        <p class="menu-footer">Booking logic is handled by the dedicated command-line interface. Please access the Python CLI for new reservations.</p>
+        <div class="room-grid">
+            </div>
+    </section>
+
+    <hr>
+
+    <section id="rooms" class="info-section">
+        <h2>// ROOM SPECIFICATIONS //</h2>
+        <div class="room-grid">
+
+            <div class="room-card">
+                <h3>1. NON-AC NORMAL (2P)</h3>
+                <p>Price: ₹3500/day</p>
+                <div class="specs">
+                    <span><i class="icon">👥</i> Occupancy: 2 adults</span>
+                    <span><i class="icon">🛏️</i> Double bed</span>
+                    <span><i class="icon">📶</i> Basic Wi-Fi</span>
+                    <span><i class="icon">🚿</i> Basic Amenities</span>
+                </div>
+                <div class="status-chip offline">NON-AC MODULE</div>
+            </div>
+
+            <div class="room-card highlight-card">
+                <h3>4. AC STANDARD (4P)</h3>
+                <p>Price: ₹7500/day</p>
+                <div class="specs">
+                    <span><i class="icon">👨‍👩‍👧‍👦</i> Occupancy: Up to 4 adults</span>
+                    <span><i class="icon">📺</i> 40" Smart TV</span>
+                    <span><i class="icon">🚿</i> Spacious with Rain Shower</span>
+                    <span><i class="icon">❄️</i> Split AC, Mini Fridge</span>
+                </div>
+                <div class="status-chip online">SMART AC MODULE</div>
+            </div>
+            
+            <div class="room-card luxury-card">
+                <h3>6. QUEEN STAY</h3>
+                <p>Price: ₹27,000/day</p>
+                <div class="specs">
+                    <span><i class="icon">👑</i> Private Balcony</span>
+                    <span><i class="icon">🛁</i> Designer Soaking Tub</span>
+                    <span><i class="icon">🥂</i> 24/7 Personalized Service</span>
+                    <span><i class="icon">📡</i> Premium High-Speed Internet</span>
+                </div>
+                <div class="status-chip alert">PREMIUM SUITE</div>
+            </div>
+        </div>
+        <p class="menu-footer extra-charge-note">For detailed specifications on all 6 room types, please access the CLI system. Extra services will incur charges.</p>
+    </section>
+
+    <hr>
+
+    <section id="menu" class="menu-section">
+        <h2>// THE GRAND VILAS CAFE MENU //</h2>
+        <div class="menu-container">
+
+            <div class="menu-category">
+                <h3>🥞 BREAKFAST</h3>
+                <ul>
+                    <li>1. Poha <span>₹60</span></li>
+                    <li>2. Masala Dosa <span>₹120</span></li>
+                    <li>3. Idli Sambar (2 pcs) <span>₹100</span></li>
+                    <li>4. Aloo Paratha with Curd <span>₹130</span></li>
+                    <li>5. Veg Sandwich <span>₹100</span></li>
+                    <li>6. Omelette (2 eggs) <span>₹90</span></li>
+                    <li>7. Tea / Coffee <span>₹40</span></li>
+                    <li>8. Fresh Juice (Orange/Mango) <span>₹120</span></li>
+                </ul>
+            </div>
+
+            <div class="menu-category">
+                <h3>🍛 MAIN COURSE (LUNCH/DINNER)</h3>
+                <ul>
+                    <li>9. Paneer Butter Masala <span>₹320</span></li>
+                    <li>10. Dal Tadka <span>₹180</span></li>
+                    <li>11. Veg Biryani <span>₹280</span></li>
+                    <li>12. Chicken Curry <span>₹350</span></li>
+                    <li>13. Mutton Rogan Josh <span>₹450</span></li>
+                    <li>14. Tandoori Roti (per piece) <span>₹30</span></li>
+                    <li>15. Steamed Rice <span>₹120</span></li>
+                    <li>16. Mixed Veg Curry <span>₹220</span></li>
+                </ul>
+            </div>
+            
+            <div class="menu-category">
+                <h3>🍔 FAST FOOD & 🍰 DESSERTS</h3>
+                <ul>
+                    <li>17. Veg Burger <span>₹100</span></li>
+                    <li>18. Cheese Pizza (Regular) <span>₹180</span></li>
+                    <li>19. French Fries <span>₹90</span></li>
+                    <li>20. Chicken Nuggets (6 pcs) <span>₹190</span></li>
+                    <li>21. Momos <span>₹180</span></li>
+                    <li>22. Maggi (Masala) <span>₹80</span></li>
+                    <li class="separator">---</li>
+                    <li>23. Gulab Jamun (2 pcs) <span>₹80</span></li>
+                    <li>24. Rasmalai (2 pcs) <span>₹120</span></li>
+                    <li>25. Ice Cream (Vanilla/Choco) <span>₹90</span></li>
+                    <li>26. Brownie with Ice Cream <span>₹280</span></li>
+                </ul>
+            </div>
+
+            <div class="menu-category">
+                <h3>🥤 DRINKS & 🧾 OTHERS</h3>
+                <ul>
+                    <li>29. Mineral Water (1L) <span>₹45</span></li>
+                    <li>30. Soft Drinks (500ml) <span>₹80</span></li>
+                    <li>31. Fresh Lime Soda <span>₹70</span></li>
+                    <li>32. Cold Coffee <span>₹140</span></li>
+                    <li>33. Lassi (Sweet) <span>₹150</span></li>
+                    <li>34. Mocktail (Fruit Mix) <span>₹180</span></li>
+                    <li class="separator">---</li>
+                    <li>35. Papad <span>₹40</span></li>
+                    <li>36. Green Salad <span>₹160</span></li>
+                    <li>37. Pickle (Mixed) <span>₹30</span></li>
+                    <li>38. Curd <span>₹50</span></li>
+                    <li>39. Butter <span>₹50</span></li>
+                    <li>40. Buttermilk <span>₹80</span></li>
+                </ul>
+            </div>
+        </div>
+        <p class="menu-footer">System orders are placed via Customer ID access on the Console.</p>
+    </section>
+    
+    <hr>
+
+    <section id="records" class="info-section">
+        <h2>// SYSTEM ACCESS //</h2>
+        <p class="menu-footer">Access to payment, records, and bill calculation requires Customer ID entry in the secure Python CLI interface.</p>
+    </section>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2025 Grand Villas. All Systems Monitored. | For Booking/Payment, please use the CLI interface for transactional logic.</p>
+    </footer>
+
+</body>
+</html>
