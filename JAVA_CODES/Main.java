@@ -1,6 +1,6 @@
 class Animal {
     void eat() {
-        System.out.println("pizza");
+        System.out.println("pizza khaooge kya !!!");
     }
 
     void data() {
@@ -10,7 +10,7 @@ class Animal {
 
 class Dog extends Animal {
     void eat() {
-        System.out.println("biryanii");
+        System.out.println("biryanii khalo gyssss!!!");
     }
     void sleep(){
         System.out.println("hello");
