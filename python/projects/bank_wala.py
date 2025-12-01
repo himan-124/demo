@@ -1,5 +1,5 @@
 # SBI ATM Simulation Program
-# Author: Himanshu (BTech Project Practice)
+# Author: Himanshu 
 import random
 import datetime
 def generate_pass():
