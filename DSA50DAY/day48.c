@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <limits.h>
-
 // Function to count elements <= mid in a row (binary search)
 int countSmallerThanOrEqual(int row[], int n, int mid) {
     int l = 0, r = n - 1;
@@ -45,7 +44,7 @@ int findMedian(int matrix[][3], int r, int c) {
 }
 
 int main() {
-    // Example: 3x3 row-wise sorted matrix
+    // Example:its just an example I'll take here 3x3 row-wise sorted matrix you can tke acc. to you ...
     int matrix[3][3] = {
         {1, 3, 5},
         {2, 6, 9},
