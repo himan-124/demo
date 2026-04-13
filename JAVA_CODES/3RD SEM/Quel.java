@@ -1,4 +1,4 @@
-package Class.Que;
+
 
 abstract class Shape {
     abstract int area();
@@ -7,6 +7,12 @@ abstract class Shape {
 class Squre extends Shape {
     int area(int a, int b) {
         return a * b;
+    }
+
+    @Override
+    int area() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'area'");
     }
 }
 
